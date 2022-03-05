@@ -5,16 +5,18 @@ public class WorldState {
     private String roomBoxIn;
     private String roomBananasIn;
     private String monkeyHeight;
-    private boolean monkeyHasBananas;
+    private boolean hasBanana;
 
     public static final String ROOM_A = "A";
     public static final String ROOM_B = "B";
     public static final String ROOM_C = "C";
 
-    public WorldState(String roomM, String roomBa, String roomBo){
-        roomMonkeyIn = roomM;
-        roomBananasIn = roomBa;
-        roomBoxIn = roomBo;
+    public WorldState(String roomM, String roomBa, String roomBo, String heightM, boolean hasB){
+        this.roomMonkeyIn = roomM;
+        this.roomBananasIn = roomBa;
+        this.roomBoxIn = roomBo;
+        this.monkeyHeight = heightM;
+        this.hasBanana = hasB;
     }
 
     public String getRoomMonkeyIn(){
@@ -29,6 +31,9 @@ public class WorldState {
         return this.roomBoxIn;
     }
 
+    public String getMonkeyHeight(){
+        return this.monkeyHeight;
+    }
 
     public boolean isMonkeyAt(String room) {
         return this.roomMonkeyIn.equalsIgnoreCase(room);
@@ -40,6 +45,9 @@ public class WorldState {
 
     public boolean isBoxAt(String room) {
         return this.roomBoxIn.equalsIgnoreCase(room);
+    }
+    public boolean isMonkeyHeight(String h){
+        return this.monkeyHeight.equalsIgnoreCase(h);
     }
 
 }

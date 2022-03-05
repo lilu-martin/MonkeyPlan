@@ -10,12 +10,17 @@ public class Move {
         this.moveTo = to;
     }
 
-    /*public boolean checkPreconditions(WorldState worldState) {
-        if(!worldState.isMonkeyAt(moveFrom)){
+    
+    public String getOpName(){
+        return operatorName;
+    }
+
+    public boolean checkPreconditions(WorldState worldState) {
+        if(!worldState.getRoomMonkeyIn().equalsIgnoreCase(this.moveFrom)){
             return false;
         }
 
-        if(!worldState.isMonkeyHeight(WorldState.HEIGHT_LOW)){
+        if(!worldState.isMonkeyHeight("low")){
             return false;
         }
 
@@ -23,7 +28,7 @@ public class Move {
     }
 
     public WorldState applyPostconditions(WorldState worldState) {
-        //create and return a new WorldState
-        //with the monkey’s updated location
-    }*/
+        WorldState newWorld = new WorldState(this.moveTo, worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "low", false);
+        return newWorld;
+    }
 }

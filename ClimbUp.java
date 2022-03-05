@@ -2,20 +2,21 @@ import java.util.*;
 
 public class ClimbUp {
     private String operatorName = "CLIMBUP";
-    private String heightFrom;
-    private String heightTo;
 
-    public ClimbUp(String from, String to){
-        this.heightFrom = from;
-        this.heightTo = to;
+    public ClimbUp(){
     }
 
-    /*public boolean checkPreconditions(WorldState worldState) {
-        if(!worldState.isMonkeyAt(moveFrom)){
+   
+    public String getOpName(){
+        return operatorName;
+    }
+
+    public boolean checkPreconditions(WorldState worldState) {
+        if(!worldState.getRoomMonkeyIn().equalsIgnoreCase(worldState.getRoomBoxIn())){
             return false;
         }
 
-        if(!worldState.isMonkeyHeight(WorldState.HEIGHT_LOW)){
+        if(!worldState.isMonkeyHeight("low")){
             return false;
         }
 
@@ -23,7 +24,7 @@ public class ClimbUp {
     }
 
     public WorldState applyPostconditions(WorldState worldState) {
-        //create and return a new WorldState
-        //with the monkey’s updated location
-    }*/
+        WorldState newWorld = new WorldState(worldState.getRoomMonkeyIn(), worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "high", false);
+        return newWorld;
+    }
 }

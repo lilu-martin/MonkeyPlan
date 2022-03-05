@@ -25,7 +25,7 @@ public class MonkeyPlan{
             System.out.print("Select which room the bananas starts in:\n[1] Room A\n[2] Room B\n[3] Room C\n==>");
             baStart = sc.nextLine();
         }
-        WorldState w = new WorldState(mStart, baStart, boStart);
+        WorldState w = new WorldState(mStart, baStart, boStart, "low", false);
         return w;
     }
 }

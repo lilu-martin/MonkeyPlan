@@ -2,18 +2,20 @@ import java.util.*;
 
 public class Grab {
     private String operatorName = "Grab";
-    private boolean hasBanana;
 
-    public Grab(boolean has){
-        this.hasBanana = has;
+    public Grab(){
     }
 
-    /*public boolean checkPreconditions(WorldState worldState) {
-        if(!worldState.isMonkeyAt(moveFrom)){
+    public String getOpName(){
+        return operatorName;
+    }
+
+    public boolean checkPreconditions(WorldState worldState) {
+        if(!worldState.getRoomMonkeyIn().equalsIgnoreCase(worldState.getRoomBananasIn())){
             return false;
         }
 
-        if(!worldState.isMonkeyHeight(WorldState.HEIGHT_LOW)){
+        if(!worldState.isMonkeyHeight("high")){
             return false;
         }
 
@@ -21,7 +23,7 @@ public class Grab {
     }
 
     public WorldState applyPostconditions(WorldState worldState) {
-        //create and return a new WorldState
-        //with the monkey’s updated location
-    }*/
+        WorldState newWorld = new WorldState(worldState.getRoomMonkeyIn(), worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "high", true);
+        return newWorld;
+    }
 }
