@@ -1,5 +1,5 @@
 public class Push extends Action {
-    private String operatorName = "PUSH";
+    private String operatorName = "Push";
     private String pushFrom;
     private String pushTo;
 

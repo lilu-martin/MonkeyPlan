@@ -1,5 +1,5 @@
 public class Move extends Action {
-    private String operatorName = "MOVE";
+    private String operatorName = "Move";
     private String moveFrom;
     private String moveTo;
 

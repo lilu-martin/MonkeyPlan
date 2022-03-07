@@ -1,5 +1,5 @@
 public class ClimbDown extends Action {
-    private String operatorName = "CLIMBDOWN";
+    private String operatorName = "ClimbDown()";
 
     public ClimbDown(){
     }

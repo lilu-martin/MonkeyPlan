@@ -1,5 +1,5 @@
 public class Grab extends Action {
-    private String operatorName = "Grab";
+    private String operatorName = "Grab()";
 
     public Grab(){
     }
