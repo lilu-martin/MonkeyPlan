@@ -40,7 +40,8 @@ public class WorldState {
             actions.add("low".equals(this.monkeyHeight) ? new ClimbUp() : new ClimbDown());
         }
         // Add in the grab
-        if(this.roomBananasIn.equals(this.roomMonkeyIn)) {
+        if(this.roomBananasIn.equals(this.roomMonkeyIn) && "high".equals(this.monkeyHeight)) {
+            System.out.println("Able to grab 🎉🎉🎉🎉🎉!");
             actions.add(new Grab());
         }
         
@@ -59,13 +60,16 @@ public class WorldState {
             return 0;
         }
         
-        int dist = 0;
+        int dist = 1;
         
+        if(this.roomMonkeyIn != this.roomBoxIn) {
+            dist += 1;
+        }
         if(this.roomMonkeyIn != this.roomBananasIn) {
-            dist += 2;
+            dist += 1;
         }
         if(this.roomBoxIn != this.roomBananasIn) {
-            dist += 2;
+            dist += 10;
         }
         if(this.monkeyHeight != "high") {
             dist += 1;
@@ -117,5 +121,14 @@ public class WorldState {
             this.monkeyHeight,
             this.hasBanana
         );
+    }
+    
+    public String toString() {
+        return "WorldState(" 
+            + this.roomMonkeyIn + "," 
+            + this.roomBananasIn + "," 
+            + this.roomBoxIn + "," 
+            + this.monkeyHeight + "," 
+            + this.hasBanana + ")";
     }
 }

@@ -12,7 +12,7 @@ public class Push extends Action {
 
    
     public String getOpName(){
-        return operatorName;
+        return operatorName + "("+ this.pushFrom + ", " + this.pushTo + ")";
     }
 
     public boolean checkPreconditions(WorldState worldState) {

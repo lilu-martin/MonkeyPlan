@@ -9,13 +9,14 @@ public class MonkeyPlan{
 
     public void makePlan(){
         WorldState initState = getUserInput();
-        Action[] actions = new BestFirst(initState).run();
+        Action[] actions = new AStar(initState).run();
+        System.out.println("Plan:");
         for(Action act : actions) {
-            System.out.println(act);
+            System.out.println("\t" + act);
         }
         
-        System.out.println("Plan:");
-        chooseMoves(initState, 6);
+        // System.out.println("Plan:");
+        // chooseMoves(initState, 6);
     }
 
     public WorldState getUserInput(){
