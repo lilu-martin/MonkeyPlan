@@ -20,6 +20,10 @@ public class Move {
             return false;
         }
 
+        if(worldState.getRoomMonkeyIn().equalsIgnoreCase(this.moveTo)){
+            return false;
+        }
+
         if(!worldState.isMonkeyHeight("low")){
             return false;
         }

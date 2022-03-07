@@ -20,7 +20,13 @@ public class Push {
             return false;
         }
 
-        if(!worldState.getRoomMonkeyIn().equalsIgnoreCase(this.pushFrom))
+        if(!worldState.getRoomMonkeyIn().equalsIgnoreCase(this.pushFrom)){
+            return false;
+        }
+
+        if(worldState.getRoomMonkeyIn().equalsIgnoreCase(this.pushTo)){
+            return false;
+        }
 
         if(!worldState.isMonkeyHeight("low")){
             return false;

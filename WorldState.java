@@ -35,6 +35,10 @@ public class WorldState {
         return this.monkeyHeight;
     }
 
+    public boolean hasBananas(){
+        return this.hasBanana;
+    }
+
     public boolean isMonkeyAt(String room) {
         return this.roomMonkeyIn.equalsIgnoreCase(room);
     }
