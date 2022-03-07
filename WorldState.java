@@ -23,8 +23,8 @@ public class WorldState {
         List<Action> actions = new ArrayList<Action>();
         
         String[] pls = {"A", "B", "C"};
-        for(int i = 0; i < 2; i++){
-            for(int j = 0; j < 2; j++){
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
                 Move m = new Move(pls[i], pls[j]);
                 if(m.checkPreconditions(this)){
                     actions.add(m);
