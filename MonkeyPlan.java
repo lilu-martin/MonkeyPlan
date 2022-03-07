@@ -4,10 +4,16 @@ public class MonkeyPlan{
     
     private static Scanner sc = new Scanner(System.in);
 
-    public MonkeyPlan(){}
+    public MonkeyPlan(){
+    }
 
     public void makePlan(){
         WorldState initState = getUserInput();
+        Action[] actions = new BestFirst(initState).run();
+        for(Action act : actions) {
+            System.out.println(act);
+        }
+        
         System.out.println("Plan:");
         chooseMoves(initState, 6);
     }

@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Grab extends Action {
     private String operatorName = "Grab";
 
