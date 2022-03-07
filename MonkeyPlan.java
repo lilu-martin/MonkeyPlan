@@ -43,7 +43,7 @@ public class MonkeyPlan{
                 for(int j = 0; j < 2; j++){
                     Move m = new Move(pls[i], pls[j]);
                     if(m.checkPreconditions(w)){
-                        if(chooseMoves(m.applyPostconditions(w), max-1)){
+                        if(chooseMoves(m.applyPostConditions(w), max-1)){
                             System.out.println("Move(" + pls[i] +", " +pls[j]+")");
                             return true;
         
@@ -51,7 +51,7 @@ public class MonkeyPlan{
                     }
                     Push p = new Push(pls[i], pls[j]);
                     if(p.checkPreconditions(w)){
-                        if(chooseMoves(p.applyPostconditions(w), max-1)){
+                        if(chooseMoves(p.applyPostConditions(w), max-1)){
                             System.out.println("Push(" + pls[i] +", " +pls[j]+")");
                             return true;
         
@@ -62,7 +62,7 @@ public class MonkeyPlan{
         }
         ClimbUp cu = new ClimbUp();
         if(cu.checkPreconditions(w)){
-            if(chooseMoves(cu.applyPostconditions(w), max-1)){
+            if(chooseMoves(cu.applyPostConditions(w), max-1)){
                 System.out.println("ClimbUp()");
                 return true;
         
@@ -70,7 +70,7 @@ public class MonkeyPlan{
         }
         ClimbDown cd = new ClimbDown();
         if(cd.checkPreconditions(w)){
-            if(chooseMoves(cd.applyPostconditions(w), max-1)){
+            if(chooseMoves(cd.applyPostConditions(w), max-1)){
                 System.out.println("ClimbDown()");
                 return true;
         
@@ -78,7 +78,7 @@ public class MonkeyPlan{
         }
         Grab g = new Grab();
         if(g.checkPreconditions(w)){
-            if(chooseMoves(g.applyPostconditions(w), max-1)){
+            if(chooseMoves(g.applyPostConditions(w), max-1)){
                 System.out.println("Grab()");
                 return true;
         

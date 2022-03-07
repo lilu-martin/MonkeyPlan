@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Move {
+public class Move extends Action {
     private String operatorName = "MOVE";
     private String moveFrom;
     private String moveTo;
@@ -31,7 +31,7 @@ public class Move {
         return true;
     }
 
-    public WorldState applyPostconditions(WorldState worldState) {
+    public WorldState applyPostConditions(WorldState worldState) {
         WorldState newWorld = new WorldState(this.moveTo, worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "low", false);
         return newWorld;
     }

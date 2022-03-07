@@ -35,7 +35,7 @@ public class Push {
         return true;
     }
 
-    public WorldState applyPostconditions(WorldState worldState) {
+    public WorldState applyPostConditions(WorldState worldState) {
         WorldState newWorld = new WorldState(this.pushTo, worldState.getRoomBananasIn(), this.pushTo, "low", false);
         return newWorld;
     }

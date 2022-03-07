@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ClimbUp {
+public class ClimbUp extends Action {
     private String operatorName = "CLIMBUP";
 
     public ClimbUp(){
@@ -23,7 +23,7 @@ public class ClimbUp {
         return true;
     }
 
-    public WorldState applyPostconditions(WorldState worldState) {
+    public WorldState applyPostConditions(WorldState worldState) {
         WorldState newWorld = new WorldState(worldState.getRoomMonkeyIn(), worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "high", false);
         return newWorld;
     }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Grab {
+public class Grab extends Action {
     private String operatorName = "Grab";
 
     public Grab(){
@@ -21,9 +21,10 @@ public class Grab {
 
         return true;
     }
-
-    public WorldState applyPostconditions(WorldState worldState) {
+    
+    public WorldState applyPostConditions(WorldState worldState) {
         WorldState newWorld = new WorldState(worldState.getRoomMonkeyIn(), worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "high", true);
         return newWorld;
     }
+    
 }
