@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Push extends Action {
     private String operatorName = "PUSH";
     private String pushFrom;

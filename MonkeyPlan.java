@@ -10,13 +10,15 @@ public class MonkeyPlan{
     public void makePlan(){
         WorldState initState = getUserInput();
         Action[] actions = new AStar(initState).run();
-        System.out.println("Plan:");
-        for(Action act : actions) {
-            System.out.println("\t" + act);
-        }
         
-        // System.out.println("Plan:");
-        // chooseMoves(initState, 6);
+        if(actions != null) {
+            System.out.println("Plan:");
+            for(Action act : actions) {
+                System.out.println("\t" + act);
+            }
+        } else {
+            System.out.println("No plan found!");
+        }
     }
 
     public WorldState getUserInput(){
@@ -35,62 +37,5 @@ public class MonkeyPlan{
         }
         WorldState w = new WorldState(mStart, baStart, boStart, "low", false);
         return w;
-    }
-
-    public boolean chooseMoves(WorldState w, int max){
-        if(w.hasBananas()){
-            return true;
-        }
-        if(max == 0){
-            return false;
-        }
-        else{
-            String[] pls = {"A", "B", "C"};
-            for(int i = 0; i < 2; i++){
-                for(int j = 0; j < 2; j++){
-                    Move m = new Move(pls[i], pls[j]);
-                    if(m.checkPreconditions(w)){
-                        if(chooseMoves(m.applyPostConditions(w), max-1)){
-                            System.out.println("Move(" + pls[i] +", " +pls[j]+")");
-                            return true;
-        
-                        }
-                    }
-                    Push p = new Push(pls[i], pls[j]);
-                    if(p.checkPreconditions(w)){
-                        if(chooseMoves(p.applyPostConditions(w), max-1)){
-                            System.out.println("Push(" + pls[i] +", " +pls[j]+")");
-                            return true;
-        
-                        }
-                    }
-                }
-            }
-        }
-        ClimbUp cu = new ClimbUp();
-        if(cu.checkPreconditions(w)){
-            if(chooseMoves(cu.applyPostConditions(w), max-1)){
-                System.out.println("ClimbUp()");
-                return true;
-        
-            }
-        }
-        ClimbDown cd = new ClimbDown();
-        if(cd.checkPreconditions(w)){
-            if(chooseMoves(cd.applyPostConditions(w), max-1)){
-                System.out.println("ClimbDown()");
-                return true;
-        
-            }
-        }
-        Grab g = new Grab();
-        if(g.checkPreconditions(w)){
-            if(chooseMoves(g.applyPostConditions(w), max-1)){
-                System.out.println("Grab()");
-                return true;
-        
-            }
-        }
-        return true;
     }
 }

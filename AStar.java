@@ -1,26 +1,39 @@
 import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.Set;
 import java.util.Stack;
 
 public class AStar implements Search {
 	private PriorityQueue<StateNode> heap;
-	
+	private Set<String> visitedStates;
 	
 	public AStar(WorldState start) {
 		Comparator<StateNode> comp = new SearchComparator();
 		this.heap = new PriorityQueue<StateNode>(64, comp);
+		this.visitedStates = new HashSet<String>();
 		
 		StateNode startNode = new StateNode(null, null, start, 0);
 		this.heap.add(startNode);
 	}
 	
 	public Action[] run() {
+		return run(false);
+	}
+	
+	public Action[] run(boolean debug) {
 		// while the heap is non-empty, keep popping and calling expand()
 		while(!this.heap.isEmpty()) {
 			StateNode node = this.heap.poll();
+			if(this.visitedStates.contains(node.state.toString())) {
+				continue;
+			} else {
+				this.visitedStates.add(node.state.toString());
+			}
+			
+			if(debug) {
+				System.out.println("heap: " + this.heap.size() + " visited: " + this.visitedStates.size());
+			}
 			
 			if(node.state.hasBananas()) {
 				// We have the bananas 🎉🎉🎉!!
@@ -66,5 +79,4 @@ public class AStar implements Search {
 			backTrack(node.prev, actions);
 		}
 	}
-	
 }

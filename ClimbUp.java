@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class ClimbUp extends Action {
     private String operatorName = "CLIMBUP";
 

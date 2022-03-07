@@ -36,12 +36,11 @@ public class WorldState {
             }
         }
         // Add in the climbs
-        if(this.roomBoxIn.equals(this.roomMonkeyIn)) {
-            actions.add("low".equals(this.monkeyHeight) ? new ClimbUp() : new ClimbDown());
+        if(this.roomBoxIn.equalsIgnoreCase(this.roomMonkeyIn)) {
+            actions.add("low".equalsIgnoreCase(this.monkeyHeight) ? new ClimbUp() : new ClimbDown());
         }
         // Add in the grab
-        if(this.roomBananasIn.equals(this.roomMonkeyIn) && "high".equals(this.monkeyHeight)) {
-            System.out.println("Able to grab 🎉🎉🎉🎉🎉!");
+        if(this.roomBananasIn.equalsIgnoreCase(this.roomMonkeyIn) && "high".equalsIgnoreCase(this.monkeyHeight)) {
             actions.add(new Grab());
         }
         
@@ -69,7 +68,7 @@ public class WorldState {
             dist += 1;
         }
         if(this.roomBoxIn != this.roomBananasIn) {
-            dist += 10;
+            dist += 1;
         }
         if(this.monkeyHeight != "high") {
             dist += 1;
@@ -130,5 +129,9 @@ public class WorldState {
             + this.roomBoxIn + "," 
             + this.monkeyHeight + "," 
             + this.hasBanana + ")";
+    }
+    
+    public int hashCode() {
+        return toString().hashCode();
     }
 }

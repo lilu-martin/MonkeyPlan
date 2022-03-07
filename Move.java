@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Move extends Action {
     private String operatorName = "MOVE";
     private String moveFrom;
@@ -12,7 +10,7 @@ public class Move extends Action {
 
     
     public String getOpName(){
-        return operatorName;
+        return operatorName + "(" + this.moveFrom + ", " + this.moveTo + ")";
     }
 
     public boolean checkPreconditions(WorldState worldState) {
@@ -32,7 +30,7 @@ public class Move extends Action {
     }
 
     public WorldState applyPostConditions(WorldState worldState) {
-        WorldState newWorld = new WorldState(this.moveTo, worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "low", false);
+        WorldState newWorld = new WorldState(this.moveTo, worldState.getRoomBananasIn(), worldState.getRoomBoxIn(), "low", worldState.hasBananas());
         return newWorld;
     }
 }
