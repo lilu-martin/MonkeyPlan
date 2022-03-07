@@ -4,10 +4,16 @@ import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.Stack;
 
+/**
+ * Implements the A* algorithm for forward-chaining planning
+ */
 public class AStar implements Search {
 	private PriorityQueue<StateNode> heap;
 	private Set<String> visitedStates;
 	
+	/**
+	 * @param start Start state of the world
+	 */
 	public AStar(WorldState start) {
 		Comparator<StateNode> comp = new SearchComparator();
 		this.heap = new PriorityQueue<StateNode>(64, comp);
@@ -45,9 +51,12 @@ public class AStar implements Search {
 		return null;
 	}
 	
+	/**
+	 * Gets all possible actions from the current state and adds them to
+	 * the heap
+	 * @param node
+	 */
 	private void expand(StateNode node) {
-		// Gets all possible actions from the current state and adds them to
-		// the heap
 		for(Action action : node.state.getActions()) {
 			WorldState newState = action.applyPostConditions(node.state);
 			StateNode newNode = new StateNode(node, action, newState, node.actsFromStart+1);

@@ -1,5 +1,8 @@
 import java.util.*;
 
+/**
+ * Stores the state of the world
+ */
 public class WorldState {
     private String roomMonkeyIn;
     private String roomBoxIn;
@@ -44,6 +47,13 @@ public class WorldState {
             actions.add(new Grab());
         }
         
+        // +---------------------------+
+        // | WARNING: DO NOT UNCOMMENT |
+        // +---------------------------+
+        // if(this.unSecCouncil.isCompromised()) {
+        //     actions.add(new Seize(POLITICAL_POWER));
+        // }
+        
         // Convert the linked list into an array
         Action[] actionsArray = new Action[actions.size()];
         int i = 0;
@@ -62,16 +72,16 @@ public class WorldState {
         int dist = 1;
         
         if(this.roomMonkeyIn != this.roomBoxIn) {
-            dist += 1;
+            dist++;
         }
         if(this.roomMonkeyIn != this.roomBananasIn) {
-            dist += 1;
+            dist++;
         }
         if(this.roomBoxIn != this.roomBananasIn) {
-            dist += 1;
+            dist++;
         }
         if(this.monkeyHeight != "high") {
-            dist += 1;
+            dist++;
         }
             
         return dist;

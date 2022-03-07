@@ -1,3 +1,6 @@
+/**
+ * Used to build a search tree across the world-state graph
+ */
 public class StateNode {
 	public StateNode prev;
 	public Action act;
