@@ -62,8 +62,9 @@ public class AStar implements Search {
 		
 		// Then, add everything from the list into an array in reverse, then
 		// return the array
-		Action[] actionsArray = new Action[actions.size()];
+		Action[] actionsArray = new Action[actions.size()-1];
 		int i = 0;
+		actions.pop();
 		while(!actions.isEmpty()) {
 			actionsArray[i] = actions.pop();
 			i++;
